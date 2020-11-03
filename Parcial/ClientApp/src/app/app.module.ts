@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ConsultaComponent } from './consulta/consulta.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FiltroPersonaPipe } from './pipe/filtro-persona.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FiltroPersonaPipe } from './pipe/filtro-persona.pipe';
     FiltroPersonaPipe
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -32,7 +34,8 @@ import { FiltroPersonaPipe } from './pipe/filtro-persona.pipe';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'consulta', component: ConsultaComponent },
       { path: 'registro', component: RegistroComponent },
-    ])
+    ]),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

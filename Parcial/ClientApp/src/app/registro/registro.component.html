@@ -3,61 +3,68 @@
     <br>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="apoyoid" placeholder="Apoyo ID" [(ngModel)]="Apoyo.idapoyo">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="cc" placeholder="C.C" [(ngModel)]="Persona.cedula">
-                    </div>
+            <form [formGroup]="formGroup">
 
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="firsname" placeholder="First name" [(ngModel)]="Persona.nombre">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="lastname" placeholder="Last name" [(ngModel)]="Persona.apellido">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="number" class="form-control" name="edad" placeholder="Edad" [(ngModel)]="Persona.edad">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="sexo" placeholder="Sexo" [(ngModel)]="Persona.sexo">
 
-                        <!-- <select class="form-control" [(ngModel)]="Apoyo.Persona.Sexo">
-                            <option>M</option>
-                            <option>F</option>
-                        </select> -->
+                <input type="text" class="form-control" name="cedula" [ngClass]="{'is-invalid':control.cedula.errors && control.cedula.touched}" formControlName="cedula" placeholder="C.C">
+                <div *ngIf="control.cedula.errors"  class="invalid-feedback">
+                    <div *ngIf="control.cedula.errors.required">
+                        Se requiere la cedula
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="departamento" placeholder="Departamento" [(ngModel)]="Persona.departamento">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="ciudad" placeholder="Ciudad" [(ngModel)]="Persona.ciudad">
+
+                <input type="text " class="form-control " name="nombre " [ngClass]="{'is-invalid':control.nombre.errors && control.nombre.touched}" formControlName="nombre" placeholder="First name ">
+                <div *ngIf="control.nombre.errors"  class="invalid-feedback">
+                    <div *ngIf="control.nombre.errors.required">
+                        Se requiere El nombre
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="tipoapoyo" placeholder="TipoApoyo" [(ngModel)]="Apoyo.tipoapoyo">
-                        <!-- <select class="form-control" [(ngModel)]="Apoyo.Tipoapoyo">
-                            <option>Economico</option>
-                            <option>Alimentario</option>
-                        </select> -->
+
+                <input type="text " class="form-control " name="apellido " [ngClass]="{'is-invalid':control.apellido.errors && control.apellido.touched}" formControlName="apellido" placeholder="Last name ">
+                <div *ngIf="control.apellido.errors"  class="invalid-feedback">
+                    <div *ngIf="control.apellido.errors.required">
+                        Se requiere El apellido
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="vrapoyo" placeholder="VrApoyo" [(ngModel)]="Apoyo.vrapoyo">
+                </div>
+
+                <input type="number " class="form-control " name="edad " [ngClass]="{'is-invalid':control.edad.errors && control.edad.touched}" formControlName="edad" placeholder="Edad ">
+                <div *ngIf="control.edad.errors"  class="invalid-feedback">
+                    <div *ngIf="control.edad.errors.required">
+                        Se requiere La edad
+                    </div>
+                </div>
+
+                <input type="text " class="form-control " name="sexo " [ngClass]="{'is-invalid':control.sexo.errors && control.sexo.touched}" formControlName="sexo" placeholder="Sexo ">
+                <div *ngIf="control.sexo.errors"  class="invalid-feedback">
+                    <div *ngIf="control.sexo.errors.required">
+                        Se requiere El Sexo
+                    </div>
+                </div>
+
+                <input type="text " class="form-control " name="departamento " [ngClass]="{'is-invalid':control.departamento.errors && control.departamento.touched}" formControlName="departamento" placeholder="Departamento ">
+                <div *ngIf="control.departamento.errors"  class="invalid-feedback">
+                    <div *ngIf="control.departamento.errors.required">
+                        Se requiere El departamento
+                    </div>
+                </div>
+
+                <input type="text " class="form-control " name="ciudad " [ngClass]="{'is-invalid':control.ciudad.errors && control.ciudad.touched}" formControlName="ciudad" placeholder="Ciudad ">
+                <div *ngIf="control.ciudad.errors"  class="invalid-feedback">
+                    <div *ngIf="control.ciudad.errors.required">
+                        Se requiere La ciudad
                     </div>
                 </div>
 
             </form>
+            <br>
+            <form>
+                <input type="text" class="form-control" name="idapoyo" placeholder="Apoyo ID" [(ngModel)]="Apoyo.idapoyo">
+                <input type="text " class="form-control " name="tipoapoyo " placeholder="TipoApoyo " [(ngModel)]="Apoyo.tipoapoyo ">
+                <input type="number " class="form-control " name="vrapoyo " placeholder="VrApoyo " [(ngModel)]="Apoyo.vrapoyo ">
+
+            </form>
             <div class="text-center ">
-                <button class="btn btn-primary mr-1 " (click)="agregar()">REGISTRO</button>
+                <button class="btn btn-primary mr-1 " (click)="onSave() " [disabled]="formGroup.invalid ">REGISTRO</button>
                 <button class="btn btn-secondary " type="reset ">CANCELAR</button>
             </div>
         </div>

@@ -1,17 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3ea7f3;font-family: cursive;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1c8cdb7c;font-family: cursive;">
     <a class="navbar-brand" href="#">ParcialWeb1.0</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown" [routerLinkActive]="['link-active']">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" [routerLink]="['/registro']">Register</a>
-                    <a class="dropdown-item" [routerLink]="['/consulta']">Consult</a>
-                </div>
-            </li>
-        </ul>
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+        <button class=" btn btn-outline-primary mr-2 " id="dropdownManual " ngbDropdownAnchor (focus)="myDrop.open() " style="color: black;">Options</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownManual ">
+            <button ngbDropdownItem [routerLink]="[ '/registro'] ">Register</button>
+            <button ngbDropdownItem [routerLink]="[ '/consulta'] ">Consult</button>
+        </div>
     </div>
 </nav>

@@ -3,6 +3,8 @@ using Entidad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Logica
 {
@@ -26,7 +28,10 @@ namespace Logica
         }
 
         public List<Apoyo> ConsultarTodos(){
-            List<Apoyo> apoyos = _context.Apoyos.ToList();
+            List<Apoyo> apoyos = _context.Apoyos.Include(s=>s.Persona).ToList();
+
+            
+
             return apoyos;
         }
 
