@@ -1,3 +1,10 @@
+<form>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="filtro" placeholder="Filtro" [(ngModel)]="Filtro">
+        </div>
+    </div>
+</form>
 <table class="table">
     <thead class="thead" style="background-color: #3ea8f359;">
         <tr>
@@ -14,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let apoyo of Apoyos;index as i;">
+        <tr *ngFor="let apoyo of Apoyos|filtroPersona:Filtro;index as i;">
             <th scope="row">{{i + 1}}</th>
             <td>{{apoyo.persona.cedula}}</td>
             <td>{{apoyo.persona.nombre}}</td>

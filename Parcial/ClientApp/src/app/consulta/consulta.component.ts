@@ -12,6 +12,7 @@ export class ConsultaComponent implements OnInit {
 
   Apoyos : Apoyo[] = [];
   Personas : Persona[];
+  Filtro: string;
   constructor(private apoyoService: ApoyoService) { }
 
   ngOnInit(): void {
