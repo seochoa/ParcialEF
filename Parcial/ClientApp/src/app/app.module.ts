@@ -13,6 +13,7 @@ import { ConsultaComponent } from './consulta/consulta.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FiltroPersonaPipe } from './pipe/filtro-persona.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FetchDataComponent,
     ConsultaComponent,
     RegistroComponent,
-    FiltroPersonaPipe
+    FiltroPersonaPipe,
+    AlertModalComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -37,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ]),
     NgbModule
   ],
+  entryComponents: [AlertModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
