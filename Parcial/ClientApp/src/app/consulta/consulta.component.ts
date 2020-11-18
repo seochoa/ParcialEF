@@ -13,6 +13,7 @@ export class ConsultaComponent implements OnInit {
   Apoyos : Apoyo[] = [];
   Personas : Persona[];
   Filtro: string;
+  contador: number = 0;
   constructor(private apoyoService: ApoyoService) { }
 
   ngOnInit(): void {
@@ -22,7 +23,12 @@ export class ConsultaComponent implements OnInit {
   get(){
     this.apoyoService.get().subscribe(result => {
       this.Apoyos = result;
-      });
+      for(let apoyo of this.Apoyos){
+        this.contador += apoyo.vrapoyo;
+      }
+      console.log(this.contador);
+    });
+   
     
   }
 

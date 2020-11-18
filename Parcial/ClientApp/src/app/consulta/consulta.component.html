@@ -1,7 +1,12 @@
 <form>
     <div class="form-row">
         <div class="col">
-            <input type="text" class="form-control" name="filtro" placeholder="Filtro" [(ngModel)]="Filtro">
+            <p id="titulo" class="card-title"><strong>Total de Apoyos :{{contador}}</strong></p>
+            <p id="titulo" class="card-title"><strong>Filtro</strong></p>
+            <select class="form-control" name="tipoapoyo" id="tipoapoyo" [(ngModel)]="Filtro">
+                <option >Economico</option>
+                <option >Alimentario</option>
+            </select>
         </div>
     </div>
 </form>

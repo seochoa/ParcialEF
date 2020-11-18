@@ -5,58 +5,118 @@
         <div class="col-md-8 offset-md-2">
             <h1>Registro Persona</h1>
             <br>
-            <form>
+            <form [formGroup]="formGroupPersona">
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="cc" placeholder="C.C" [(ngModel)]="Persona.cedula">
+                        <input autocomplete="off" type="text" class="form-control" name="cedula" placeholder="Cedula" [ngClass]="{'is-invalid':control.cedula.errors && control.cedula.touched}" formControlName="cedula">
+                        <div *ngIf="control.cedula.errors"  class="invalid-feedback">
+                            <div *ngIf="control.cedula.errors.required">
+                                Se requiere identificacion de la persona
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="firsname" placeholder="First name" [(ngModel)]="Persona.nombre">
+                        <input autocomplete="off" type="text" class="form-control" name="nombre" placeholder="Nombre" [ngClass]="{'is-invalid':control.nombre.errors && control.nombre.touched}" formControlName="nombre">
+                        <div *ngIf="control.nombre.errors"  class="invalid-feedback">
+                            <div *ngIf="control.nombre.errors.required">
+                                Se requiere Nombre de la persona
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="lastname" placeholder="Last name" [(ngModel)]="Persona.apellido">
+                        <input autocomplete="off" type="text" class="form-control" name="apellido" placeholder="Apellido" [ngClass]="{'is-invalid':control.apellido.errors && control.apellido.touched}" formControlName="apellido">
+                        <div *ngIf="control.apellido.errors"  class="invalid-feedback">
+                            <div *ngIf="control.apellido.errors.required">
+                                Se requiere Apellido de la persona
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="number" class="form-control" name="edad" placeholder="Edad" [(ngModel)]="Persona.edad">
+                        <p id="titulo" class="card-title"><strong>Edad</strong></p>
+                        <input autocomplete="off" type="number" class="form-control" name="edad" placeholder="Edad" [ngClass]="{'is-invalid':control.edad.errors && control.edad.touched}" formControlName="edad">
+                        <div *ngIf="control.edad.errors"  class="invalid-feedback">
+                            <div *ngIf="control.edad.errors.required">
+                                Se requiere edad de la persona
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="sexo" placeholder="Sexo" [(ngModel)]="Persona.sexo">
+                        <p id="titulo" class="card-title"><strong>Sexo</strong></p>
+                        <select class="form-control" name="sexo" id="sexo" [ngClass]="{'is-invalid':control.sexo.errors && control.sexo.touched}" formControlName="sexo">
+                            <option >M</option>
+                            <option >F</option>
+                        </select>
+                        <div *ngIf="control.sexo.errors"  class="invalid-feedback">
+                            <div *ngIf="control.sexo.errors.required">
+                                Se requiere el Sexo
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="departamento" placeholder="Departamento" [(ngModel)]="Persona.departamento">
+                        <input autocomplete="off" type="text" class="form-control" name="departamento" placeholder="Departamento" [ngClass]="{'is-invalid':control.departamento.errors && control.departamento.touched}" formControlName="departamento">
+                        <div *ngIf="control.departamento.errors"  class="invalid-feedback">
+                            <div *ngIf="control.departamento.errors.required">
+                                Se requiere departamento de la persona
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="ciudad" placeholder="Ciudad" [(ngModel)]="Persona.ciudad">
+                        <input autocomplete="off" type="text" class="form-control" name="ciudad" placeholder="Ciudad" [ngClass]="{'is-invalid':control.ciudad.errors && control.ciudad.touched}" formControlName="ciudad">
+                        <div *ngIf="control.ciudad.errors"  class="invalid-feedback">
+                            <div *ngIf="control.ciudad.errors.required">
+                                Se requiere ciudad de la persona
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
             <h1>Registro Apoyo</h1>
             <br>
-            <form>
+            <form [formGroup]="formGroupApoyo">
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="apoyoid" placeholder="Apoyo ID" [(ngModel)]="Apoyo.idapoyo">
+                        <input autocomplete="off" type="text" class="form-control" name="idapoyo" placeholder="Apoyo ID" [ngClass]="{'is-invalid':control2.idapoyo.errors && control2.idapoyo.touched}" formControlName="idapoyo">
+                        <div *ngIf="control2.idapoyo.errors"  class="invalid-feedback">
+                            <div *ngIf="control2.idapoyo.errors.required">
+                                Se requiere identificacion del apoyo
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="tipoapoyo" placeholder="TipoApoyo" [(ngModel)]="Apoyo.tipoapoyo">
+                        <p id="titulo" class="card-title"><strong>Tipo Apoyo</strong></p>
+                        <select class="form-control" name="tipoapoyo" id="tipoapoyo" [ngClass]="{'is-invalid':control2.tipoapoyo.errors && control2.tipoapoyo.touched}" formControlName="tipoapoyo">
+                            <option >Economico</option>
+                            <option >Alimentario</option>
+                        </select>
+                        <div *ngIf="control2.tipoapoyo.errors"  class="invalid-feedback">
+                            <div *ngIf="control2.tipoapoyo.errors.required">
+                                Se requiere el tipo Apoyo
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="vrapoyo" placeholder="VrApoyo" [(ngModel)]="Apoyo.vrapoyo">
+                        <p id="titulo" class="card-title"><strong>Vr Apoyo</strong></p>
+                        <input autocomplete="off" type="number" class="form-control" name="vrapoyo" placeholder="Vr Apoyo" [ngClass]="{'is-invalid':control2.vrapoyo.errors && control2.vrapoyo.touched}" formControlName="vrapoyo">
+                        <div *ngIf="control2.vrapoyo.errors"  class="invalid-feedback">
+                            <div *ngIf="control2.vrapoyo.errors.required">
+                                Se requiere Valor del apoyo
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
         <br>
         <div class="text-center ">
-            <button class="btn btn-primary mr-1 " (click)="agregar()">REGISTRO</button>
+            <button class="btn btn-primary mr-1 " (click)="agregar()" [disabled]="formGroupApoyo.invalid || formGroupPersona.invalid">REGISTRO</button>
             <button class="btn btn-secondary " type="reset ">CANCELAR</button>
         </div>
     </div>
